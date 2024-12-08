@@ -15,7 +15,16 @@ export const CartWidget = () => {
         />
         {totalItems > 0 && <span>{totalItems}</span>}
       </Link>
-      
+      {items.length > 0 && (
+        <div className="cart-preview">
+          {items.map(item => (
+            <div key={item.id} className="cart-item">
+              <span>{item.name}</span>
+              <span>Cantidad: {item.quantity}</span>
+            </div>
+          ))}
+        </div>
+      )}
     </>
   );
 };
