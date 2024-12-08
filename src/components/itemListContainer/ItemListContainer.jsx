@@ -14,8 +14,8 @@ const ItemListContainer = () => {
     const db = getFirestore();
 
     const refCollection = !id
-      ? collection(db, "pfinalitems")
-      : query(collection(db, "pfinalitems"), where("category", "==", id));
+      ? collection(db, "items")
+      : query(collection(db, "items"), where("category", "==", id));
     
     console.log(refCollection);
 

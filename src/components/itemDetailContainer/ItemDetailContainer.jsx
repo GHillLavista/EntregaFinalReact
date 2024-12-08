@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router-dom";
 import Container from "react-bootstrap/Container";
-import { getFirestore, doc, getDoc } from "firebase/firestore";
+import { getFirestore, doc, getDoc, } from "firebase/firestore";
 import { ItemCount } from "../ItemCount"; 
 import { ItemContexts } from "../../contexts/ItemContexts"; 
 // import {Swal} from "sweetalert2";
@@ -23,11 +23,21 @@ const ItemDetailContainer = () => {
   useEffect(() => {
     const db = getFirestore();
 
-    const refDoc = doc(db, "Items", id);
+    const refDoc = doc(db, "items", id);
+
+    console.log("Buscando ítem con ID:", id);
 
     getDoc(refDoc)
       .then((snapshot) => {
-        setItems({ id: snapshot.id, ...snapshot.data() });
+        console.log("Snapshot:", snapshot.exists());
+        if (snapshot.exists()) {
+          setItems({ id: snapshot.id, ...snapshot.data() });
+        } else {
+          console.error("No such document!");
+        }
+      })
+      .catch((error) => {
+        console.error("Error getting document:", error);
       })
       .finally(() => setLoading(false));
   }, [id]);
@@ -53,12 +63,13 @@ const ItemDetailContainer = () => {
         {value.items.length}
       </h3>
       <p>{items.category}</p>
+      <p>{items.stock}</p>
       <p>{items.description}</p>
       <p>{items.price}</p>
-      <p>{items.stock}</p>
       <ItemCount stock={items.stock} onAdd={onAdd} />
     </Container>
   );
 };
 
 export default ItemDetailContainer;
+

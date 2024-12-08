@@ -21,11 +21,8 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const myDB = getFirestore(app);
-export {myDB}
 
-
+initializeApp(firebaseConfig);
 
 
 createRoot(document.getElementById('root')).render(
@@ -35,8 +32,4 @@ createRoot(document.getElementById('root')).render(
     </Provider>
   </React.StrictMode>
 )
-
-const rootElement = document.getElementById('root');
-const root = rootElement._reactRootContainer ? rootElement._reactRootContainer : createRoot(rootElement);
-root.render(<App />);
 
