@@ -69,7 +69,7 @@ export const Checkout = () => {
               {items?.map((i) => (
                 <Row key={i.id} className="mb-3">
                   <Col md={4}>
-                    <img src={i.img} alt="producto" className="img-fluid" />
+                    <img src={i.image} alt="producto" className="img-fluid" />
                   </Col>
                   <Col md={12}>
                     <h5>{i.title}</h5>
