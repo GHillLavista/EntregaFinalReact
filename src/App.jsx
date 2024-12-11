@@ -1,11 +1,11 @@
 import { useState} from 'react'
 import "./App.css";
 import NavBar from './components/navBar/NavBar';
-import ItemListContainer from './Components/ItemListContainer/ItemListContainer';
-import ItemDetailContainer from './Components/ItemDetailContainer/ItemDetailContainer';
+import ItemListContainer from './components/itemListContainer/ItemListContainer';
+import ItemDetailContainer from './components/itemDetailContainer/ItemDetailContainer';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NoPage from './data/NoPage';
-import Checkout from "./Components/Checkout";
+import Checkout from "./components/Checkout";
 import { Provider } from './contexts/ItemContexts';
 
 
