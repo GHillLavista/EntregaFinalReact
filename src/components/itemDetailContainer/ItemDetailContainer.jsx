@@ -3,7 +3,7 @@ import { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import { getFirestore, doc, getDoc, } from "firebase/firestore";
-import { ItemCount } from "../ItemCount"; 
+import { ItemCount } from "../itemCount"; 
 import { ItemContexts } from "../../contexts/ItemContexts"; 
 // import {Swal} from "sweetalert2";
 
